@@ -1,6 +1,6 @@
-import React from "react"
-import Layout from "../components/Layout"
-import BlogList from "../components/BlogList"
+import React from 'react';
+import Layout from '../components/Layout';
+import BlogList from '../components/BlogList';
 
 export default function IndexPage() {
   return (
@@ -9,5 +9,5 @@ export default function IndexPage() {
         <BlogList />
       </section>
     </Layout>
-  )
+  );
 }

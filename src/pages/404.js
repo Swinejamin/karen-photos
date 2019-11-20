@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
-import Layout from "../components/Layout"
-import notFoundStyles from "../styles/pages/404.module.scss"
+import React from 'react';
+import { Link } from 'gatsby';
+import Layout from '../components/Layout';
+import notFoundStyles from '../styles/pages/404.module.scss';
 
 export default function NotFound() {
   return (
@@ -12,5 +12,5 @@ export default function NotFound() {
         </Link>
       </div>
     </Layout>
-  )
+  );
 }

@@ -27,25 +27,16 @@ export default function Blog(props) {
     <Layout>
       <article className={blogTemplateStyles.blog}>
         <figure className={blogTemplateStyles.blog__hero}>
-          <Img
-            fluid={data.frontmatter.hero_image.childImageSharp.fluid}
-            alt={data.frontmatter.title}
-          />
+          <Img fluid={data.frontmatter.hero_image.childImageSharp.fluid} alt={data.frontmatter.title} />
         </figure>
         <div className={blogTemplateStyles.blog__info}>
           <h1>{data.frontmatter.title}</h1>
           <h3>{data.frontmatter.date}</h3>
         </div>
-        <div
-          className={blogTemplateStyles.blog__body}
-          dangerouslySetInnerHTML={{ __html: data.html }}
-        ></div>
+        <div className={blogTemplateStyles.blog__body} dangerouslySetInnerHTML={{ __html: data.html }}></div>
         <div className={blogTemplateStyles.blog__footer}>
           <h2>Written By: {data.frontmatter.author}</h2>
-          <Link
-            to={`blog/${nextSlug}`}
-            className={blogTemplateStyles.footer__next}
-          >
+          <Link to={`blog/${nextSlug}`} className={blogTemplateStyles.footer__next}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               version="1.1"
