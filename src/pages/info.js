@@ -9,8 +9,8 @@ export default function Info() {
     <Layout page="info" bgColor={infoData.background_color}>
       <section className={infoStyles.info_blurb}>
         <h2>
-          <div dangerouslySetInnerHTML={{ __html: infoData.description }}></div>
-          <div dangerouslySetInnerHTML={{ __html: infoData.cta }}></div>
+          <span dangerouslySetInnerHTML={{ __html: infoData.description }}></span>
+          <span dangerouslySetInnerHTML={{ __html: infoData.cta }}></span>
         </h2>
         <ul>
           {infoData.contact.email && (
