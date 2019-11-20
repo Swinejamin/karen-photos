@@ -1,4 +1,9 @@
 ---
-label: Gallery Page
+label: Album
 hide_body: false
-fields: []
+fields:
+- name: gallery
+  type: include
+  config: {}
+  template: album
+  label: Gallery
