@@ -15,27 +15,31 @@ export default function Info() {
         <ul>
           {infoData.contact.email && (
             <li>
-              <p>
-                <a href={`mailto:${infoData.contact.email}`}>Email: {infoData.contact.email}</a>
-              </p>
+              <a href={`mailto:${infoData.contact.email}`} target="_blank" rel=" noopener noreferrer">
+                Email: {infoData.contact.email}
+              </a>
             </li>
           )}
           {infoData.contact.facebook_handle && (
             <li>
-              <p>
-                <a href={`https://facebook.com/${infoData.contact.facebook_handle}`}>
-                  Facebook: @{infoData.contact.facebook_handle}
-                </a>
-              </p>
+              <a
+                href={`https://facebook.com/${infoData.contact.facebook_handle}`}
+                target="_blank"
+                rel=" noopener noreferrer"
+              >
+                Facebook: @{infoData.contact.facebook_handle}
+              </a>
             </li>
           )}
           {infoData.contact.instagram_handle && (
             <li>
-              <p>
-                <a href={`https://instagram.com/${infoData.contact.instagram_handle}`}>
-                  Instagram: @{infoData.contact.instagram_handle}
-                </a>
-              </p>
+              <a
+                href={`https://instagram.com/${infoData.contact.instagram_handle}`}
+                target="_blank"
+                rel=" noopener noreferrer"
+              >
+                Instagram: @{infoData.contact.instagram_handle}
+              </a>
             </li>
           )}
         </ul>
