@@ -2,54 +2,54 @@
 label: Info Page
 hide_body: true
 fields:
-- name: description
-  type: textarea
-  default: ''
-  config:
-    required: false
-    wysiwyg: true
-    schema:
-      format: html-blocks
-  label: description
-  description: Enter description here
-- name: cta
-  type: textarea
-  default: ''
-  config:
-    required: false
-    wysiwyg: true
-    schema:
-      format: html-blocks
-  label: cta
-  description: Enter call to action here
-- type: field_group
-  name: contact
-  label: contact
-  fields:
-  - type: text
-    name: email
-    label: email
-  - name: facebook_url
-    type: text
+  - name: description
+    type: textarea
+    default: ''
     config:
       required: false
-    label: facebook_url
-    description: The final part of your facebook url (do not include facebook.com,
-      etc.)
-  - name: instagram_url
-    type: text
+      wysiwyg: true
+      schema:
+        format: html-blocks
+    label: description
+    description: Enter description here
+  - name: cta
+    type: textarea
+    default: ''
     config:
       required: false
-    label: instagram_url
-    description: The final part of your instagram url (do not include instagram.com,
-      etc.)
-- name: background_color
-  type: color
-  label: background_color
-  config:
-    required: false
-    color_format: Hex
-  description: Enter info page background color
-  default: "#B1BCBC"
+      wysiwyg: true
+      schema:
+        format: html-blocks
+    label: cta
+    description: Enter call to action here
+  - type: field_group
+    name: contact
+    label: contact
+    fields:
+      - type: text
+        name: email
+        label: email
+      - name: facebook_handle
+        type: text
+        config:
+          required: false
+        label: facebook_handle
+        description: The final part of your facebook url (do not include facebook.com,
+          etc.)
+      - name: instagram_handle
+        type: text
+        config:
+          required: false
+        label: instagram_handle
+        description: The final part of your instagram url (do not include instagram.com,
+          etc.)
+  - name: background_color
+    type: color
+    label: background_color
+    config:
+      required: false
+      color_format: Hex
+    description: Enter info page background color
+    default: '#B1BCBC'
 pages:
-- content/data/info.json
+  - content/data/info.json

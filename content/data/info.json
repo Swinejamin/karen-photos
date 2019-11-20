@@ -3,8 +3,8 @@
   "cta": "<p>To get started, import this site into Forestry or checkout the repository <a href=\"https://github.com/kendallstrautman/starter-blog-gatsby\" title=\"Repo Url\">here</a>.</p>",
   "contact": {
     "email": "karen@example.org",
-    "facebook_url": "karenmariephotos",
-    "instagram_url": ""
+    "facebook_handle": "karenmariephotos",
+    "instagram_handle": ""
   },
   "background_color": "#B1BCBC"
 }
