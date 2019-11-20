@@ -33,5 +33,3 @@ fields:
     labelField: 
   label: Featured Photos
   description: Pick your top photos to be featured on the homepage
-pages:
-- content/data/home.json
