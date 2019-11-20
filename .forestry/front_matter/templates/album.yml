@@ -23,3 +23,8 @@ fields:
   config: {}
   label: Images
   description: Add all the images you want included in this gallery
+- name: keywords
+  type: tag_list
+  default: []
+  label: Keywords
+  description: A list of descriptive keywords for this gallery
