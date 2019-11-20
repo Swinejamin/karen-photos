@@ -4,9 +4,10 @@
   "repository_url": "https://github.com/swinejamin/karen-photos",
   "featured_photos": [
     {
+      "photo": "/content/images/SF19-300.jpg",
       "title": "Weddings",
-      "description": "Love eternal",
-      "photo": "/content/images/SF19-300.jpg"
+      "date": "2019-11-20T11:23:49-06:00",
+      "description": "Eternal bliss"
     }
   ]
 }
