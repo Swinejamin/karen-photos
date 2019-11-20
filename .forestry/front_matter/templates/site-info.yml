@@ -12,5 +12,19 @@ fields:
   name: repository_url
   label: repository_url
   hidden: true
+- name: featured_photos
+  type: field_group_list
+  fields:
+  - name: photo
+    type: include
+    config: {}
+    template: featured-photo
+    label: Photo
+  config:
+    min: '1'
+    max: '5'
+    labelField: 
+  label: Featured Photos
+  description: Choose 1-5 photos to be prominently featured across the site
 pages:
 - config.json
