@@ -1,5 +1,12 @@
 {
   "title": "Karen Marie Photography",
   "description": "Midwest Wedding &  Family Photography",
-  "repository_url": "https://github.com/swinejamin/karen-photos"
+  "repository_url": "https://github.com/swinejamin/karen-photos",
+  "featured_photos": [
+    {
+      "title": "Weddings",
+      "description": "Love eternal",
+      "photo": "/content/images/SF19-300.jpg"
+    }
+  ]
 }
