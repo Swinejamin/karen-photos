@@ -1,5 +1,5 @@
 ---
-label: Album
+label: Gallery
 hide_body: false
 fields:
 - name: title
