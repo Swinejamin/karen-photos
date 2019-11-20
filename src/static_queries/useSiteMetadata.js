@@ -7,12 +7,11 @@ export default function useSiteMetadata() {
         siteMetadata {
           title
           description
-          repoUrl
           infoData {
             contact {
               email
-              github_handle
-              twitter_handle
+              facebook_url
+              instagram_url
             }
             cta
             description
