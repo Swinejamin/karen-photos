@@ -1,5 +1,5 @@
-const config = require("./config.json")
-const infoData = require("./content/data/info.json")
+const config = require('./config.json');
+const infoData = require('./content/data/info.json');
 
 module.exports = {
   //this makes the site config available to forestry cms
@@ -10,56 +10,56 @@ module.exports = {
     about: config.about,
     contact: config.contact,
     primaryColor: config.primary_color,
-    infoData: infoData
+    infoData: infoData,
   },
   plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-transformer-remark",
-    "gatsby-plugin-react-helmet",
-    "gatsby-transformer-yaml",
+    'gatsby-plugin-sass',
+    'gatsby-transformer-remark',
+    'gatsby-plugin-react-helmet',
+    'gatsby-transformer-yaml',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "src",
+        name: 'src',
         path: `${__dirname}/src/`,
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "posts",
-        path: `${__dirname}/content/posts`
-      }
+        name: 'posts',
+        path: `${__dirname}/content/posts`,
+      },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "data",
+        name: 'data',
         path: `${__dirname}/content/data`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: "images",
+        name: 'images',
         path: `${__dirname}/content/images`,
       },
     },
     {
-      resolve: "gatsby-plugin-sharp", 
+      resolve: 'gatsby-plugin-sharp',
       options: {
-        defaultQuality: 75
-      }
+        defaultQuality: 75,
+      },
     },
     `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          "gatsby-remark-relative-images",
-          "gatsby-remark-normalize-paths",
+          'gatsby-remark-relative-images',
+          'gatsby-remark-normalize-paths',
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1000,
               linkImagesToOriginal: false,
@@ -69,4 +69,4 @@ module.exports = {
       },
     },
   ],
-}
+};
