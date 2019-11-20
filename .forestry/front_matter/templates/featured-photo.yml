@@ -21,6 +21,6 @@ fields:
 - name: photo
   type: file
   config:
-    maxSize: '4'
+    maxSize: '8'
   label: Photo
   description: Select or upload your photo
