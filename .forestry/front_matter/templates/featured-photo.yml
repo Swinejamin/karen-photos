@@ -8,6 +8,18 @@ fields:
       required: true
     label: Title
     description: A short title
+
+  - name: date
+    type: datetime
+    label: date
+    description: Date post was created
+    hidden: true
+    config:
+      required: true
+      date_format:
+      time_format:
+      display_utc: false
+    default: now
   - name: description
     type: textarea
     default: ''
