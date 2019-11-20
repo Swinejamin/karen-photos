@@ -15,12 +15,28 @@ fields:
 - name: featured_photos
   type: field_group_list
   fields:
+  - name: title
+    type: text
+    config:
+      required: true
+    label: Title
+    description: A short title for your photo
+  - name: description
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+    label: Description
+    description: A longer description for your photo
   - name: photo
-    type: include
-    config: {}
-    template: featured-photo
+    type: file
+    config:
+      maxSize: '4'
     label: Photo
-    description: Add a photo with title and description
+    description: Select or upload your photo
   config:
     min: '1'
     max: '5'
