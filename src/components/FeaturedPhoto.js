@@ -5,9 +5,13 @@ import styles from '../styles/components/featuredphoto.module.scss';
 const FeaturedPhoto = ({ title, description, photo, ...rest }) => {
   console.log({ title, description, photo, ...rest });
   return (
-    <div className={styles.photo}>
+    <figure className={styles.photo}>
       <Img fluid={photo?.childImageSharp?.fluid} alt={`${title}: ${description}`} />
-    </div>
+      <figcaption className={styles.caption}>
+        <span className={styles.title}>{title}</span>
+        {description && <span className={styles.description}>{description}</span>}
+      </figcaption>
+    </figure>
   );
 };
 
