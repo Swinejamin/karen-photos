@@ -14,6 +14,13 @@ fields:
   hidden: true
 - name: featured_photos
   type: field_group_list
+  fields:
+  - name: photo
+    type: include
+    config: {}
+    template: featured-photo
+    label: Photo
+    description: Add a photo with title and description
   config:
     min: '1'
     max: '5'
