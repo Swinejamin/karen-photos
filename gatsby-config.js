@@ -4,13 +4,8 @@ const infoData = require('./content/data/info.json');
 module.exports = {
   //this makes the site config available to forestry cms
   siteMetadata: {
-    title: config.title,
-    description: config.description,
-    repoUrl: config.repository_url,
-    about: config.about,
-    contact: config.contact,
-    primaryColor: config.primary_color,
-    infoData: infoData,
+    ...config,
+    infoData,
   },
   plugins: [
     'gatsby-plugin-sass',
