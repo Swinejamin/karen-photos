@@ -7,7 +7,6 @@ sections:
 - type: document
   path: content/data/albums.json
   label: Albums
-  match: "**/*"
 - type: heading
   label: Content
 - type: directory
