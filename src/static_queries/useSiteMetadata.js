@@ -8,7 +8,7 @@ export default function useSiteMetadata() {
           title
           description
           featured_photos {
-                description
+            description
             title
             photo
           }
@@ -18,6 +18,7 @@ export default function useSiteMetadata() {
               facebook_handle
               instagram_handle
             }
+
             description
             background_color
           }
