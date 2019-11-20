@@ -27,6 +27,10 @@ sections:
   path: content/data/authors.yaml
   label: Author List
 - type: document
+  path: content/data/home.json
+  label: Home Page
+  match: "**/*"
+- type: document
   path: content/data/info.json
   label: Info Page
 - type: heading
