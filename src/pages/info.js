@@ -13,25 +13,31 @@ export default function Info() {
           <div dangerouslySetInnerHTML={{ __html: infoData.cta }}></div>
         </h2>
         <ul>
-          <li>
-            <p>
-              <a href={`mailto:${infoData.contact.email}`}>Email: {infoData.contact.email}</a>
-            </p>
-          </li>
-          <li>
-            <p>
-              <a href={`https://facebook.com/${infoData.contact.facebook_handle}`}>
-                Facebook: @{infoData.contact.facebook_handle}
-              </a>
-            </p>
-          </li>
-          <li>
-            <p>
-              <a href={`https://instagram.com/${infoData.contact.instagram_handle}`}>
-                Instagram: @{infoData.contact.instagram_handle}
-              </a>
-            </p>
-          </li>
+          {infoData.contact.email && (
+            <li>
+              <p>
+                <a href={`mailto:${infoData.contact.email}`}>Email: {infoData.contact.email}</a>
+              </p>
+            </li>
+          )}
+          {infoData.contact.facebook_handle && (
+            <li>
+              <p>
+                <a href={`https://facebook.com/${infoData.contact.facebook_handle}`}>
+                  Facebook: @{infoData.contact.facebook_handle}
+                </a>
+              </p>
+            </li>
+          )}
+          {infoData.contact.instagram_handle && (
+            <li>
+              <p>
+                <a href={`https://instagram.com/${infoData.contact.instagram_handle}`}>
+                  Instagram: @{infoData.contact.instagram_handle}
+                </a>
+              </p>
+            </li>
+          )}
         </ul>
       </section>
     </Layout>
