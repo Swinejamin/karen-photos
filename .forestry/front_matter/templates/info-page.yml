@@ -29,12 +29,20 @@ fields:
   - type: text
     name: email
     label: email
-  - type: text
-    name: twitter_handle
-    label: twitter_handle
-  - type: text
-    name: github_handle
-    label: github_handle
+  - name: facebook_url
+    type: text
+    config:
+      required: false
+    label: facebook_url
+    description: The final part of your facebook url (do not include facebook.com,
+      etc.)
+  - name: instagram_url
+    type: text
+    config:
+      required: false
+    label: instagram_url
+    description: The final part of your instagram url (do not include instagram.com,
+      etc.)
 - name: background_color
   type: color
   label: background_color
