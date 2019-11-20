@@ -4,11 +4,6 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: directory
-  path: content/features/**/*
-  label: Featured Photos
-  create: documents
-  match: "**/*"
 - type: heading
   label: Showcase
 - type: directory
@@ -28,6 +23,13 @@ sections:
   new_doc_ext: md
   templates:
   - blog-post
+- type: directory
+  path: content/features/**/*
+  label: Featured Photos
+  create: documents
+  match: "**/*"
+  templates:
+  - featured-photo
 - type: document
   path: content/data/authors.yaml
   label: Author List
