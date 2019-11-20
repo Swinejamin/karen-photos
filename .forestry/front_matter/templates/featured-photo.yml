@@ -2,38 +2,39 @@
 label: Featured Photo
 hide_body: true
 fields:
-  - name: title
-    type: text
-    config:
-      required: true
-    label: Title
-    description: A short title
-  - name: date
-    type: datetime
-    label: date
-    description: Date post was created
-    hidden: true
-    config:
-      required: true
-      date_format:
-      time_format:
-      display_utc: false
-    default: now
-  - name: description
-    type: textarea
-    default: ''
-    config:
-      required: false
-      wysiwyg: false
-      schema:
-        format: markdown
-    label: Description
-    description: A longer desciption
-  - name: photo
-    type: file
-    config:
-      maxSize: '8'
-    label: Photo
-    description: Select or upload your photo
+- name: title
+  type: text
+  config:
+    required: true
+  label: Title
+  description: A short title
+- name: date
+  type: datetime
+  label: date
+  description: Date post was created
+  hidden: true
+  config:
+    required: true
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
+  description: A longer desciption
+- name: photo
+  type: file
+  config:
+    maxSize: '8'
+  label: Photo
+  description: Select or upload your photo
 pages:
-  - content/featured_photos/wedding.md
+- content/featured_photos/abstract.md
+- content/featured_photos/wedding.md
