@@ -4,10 +4,6 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: document
-  path: content/data/featured_photos.yaml
-  label: Featured Photos
-  match: "**/*"
 - type: heading
   label: Showcase
 - type: directory
@@ -19,6 +15,9 @@ sections:
   - album
 - type: heading
   label: Content
+- type: document
+  path: content/data/featured_photos.yaml
+  label: Featured Photos
 - type: directory
   path: content/posts
   label: Blog Posts
