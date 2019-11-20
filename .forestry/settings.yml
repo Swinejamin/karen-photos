@@ -9,7 +9,7 @@ sections:
 - type: directory
   path: content/galleries
   label: Galleries
-  create: none
+  create: documents
   match: "**/*"
   templates:
   - album
