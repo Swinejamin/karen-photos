@@ -13,9 +13,6 @@ sections:
   match: "**/*"
   templates:
   - album
-- type: document
-  path: content/data/albums.json
-  label: Albums
 - type: heading
   label: Content
 - type: directory
