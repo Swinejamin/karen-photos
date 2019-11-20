@@ -1,32 +1,14 @@
 import Img from 'gatsby-image';
 import React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import styles from '../styles/components/featuredphoto.module.scss';
 
-const FeaturedPhoto = ({ data, title, description, path }) => {
-  const query = graphql`
-    query {
-      fileName: file(relativePath: { eq: ${path} }) {
-        childImageSharp {
-          fluid(maxWidth: 400, maxHeight: 250) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `;
-  return <Img fluid={data.file.childImageSharp.fluid} alt={`${title}: ${description}`} />;
+const FeaturedPhoto = ({ title, description, photo, ...rest }) => {
+  console.log({ title, description, photo, ...rest });
+  return (
+    <div className={styles.photo}>
+      <Img fluid={photo?.childImageSharp?.fluid} alt={`${title}: ${description}`} />
+    </div>
+  );
 };
 
 export default FeaturedPhoto;
-
-export const getFeaturedPhoto = graphql`
-  query($slug: String!) {
-    fileName: file(relativePath: { eq: $slug }) {
-      childImageSharp {
-        fluid(maxWidth: 400, maxHeight: 250) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
