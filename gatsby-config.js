@@ -9,7 +9,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-sass',
-    'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
 
@@ -25,6 +24,13 @@ module.exports = {
       options: {
         name: 'posts',
         path: `${__dirname}/content/posts`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'featured_photos',
+        path: `${__dirname}/content/featured_photos`,
       },
     },
     {
@@ -53,7 +59,6 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-relative-images',
-          'gatsby-remark-normalize-paths',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -61,6 +66,7 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
+          'gatsby-remark-normalize-paths',
         ],
       },
     },

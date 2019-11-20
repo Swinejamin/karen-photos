@@ -1,15 +1,14 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import useSiteMetadata from '../static_queries/useSiteMetadata';
 import FeaturedPhoto from '../components/FeaturedPhoto';
-
+import useFeaturedPhotos from '../static_queries/useFeaturedPhotos';
 export default function IndexPage() {
-  const { featured_photos } = useSiteMetadata();
+  const photos = useFeaturedPhotos();
   return (
     <Layout page="home">
       <section>
-        {featured_photos.map(photo => (
-          <FeaturedPhoto {...photo} />
+        {photos.map(({ node }) => (
+          <FeaturedPhoto {...node.frontmatter} key={node.id} />
         ))}
       </section>
     </Layout>
