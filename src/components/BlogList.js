@@ -1,25 +1,23 @@
-import React from "react"
-import { Link } from "gatsby"
-import useBlogData from "../static_queries/useBlogData"
-import blogListStyles from "../styles/components/bloglist.module.scss"
-import Img from 'gatsby-image'
+import React from 'react';
+import { Link } from 'gatsby';
+import useBlogData from '../static_queries/useBlogData';
+import blogListStyles from '../styles/components/bloglist.module.scss';
+import Img from 'gatsby-image';
 
 export default function BlogList() {
-  const blogData = useBlogData()
+  const blogData = useBlogData();
   function renderBlogData() {
     return (
       <div>
         {blogData
-          .filter(blog => blog.node.frontmatter.title !== "")
+          .filter(blog => blog.node.frontmatter.title !== '')
           .map(blog => {
             return (
               <Link to={`/blog/${blog.node.fields.slug}`} key={blog.node.id}>
                 <li className={blogListStyles.li} key={blog.node.fields.slug}>
                   <div className={blogListStyles.list__hero}>
-                    <Img 
-                      fluid={
-                        blog.node.frontmatter.hero_image.childImageSharp.fluid
-                      }
+                    <Img
+                      fluid={blog.node.frontmatter.hero_image.childImageSharp.fluid}
                       alt={blog.node.frontmatter.title}
                     />
                   </div>
@@ -30,15 +28,14 @@ export default function BlogList() {
                   </div>
                 </li>
               </Link>
-            )
+            );
           })}
       </div>
-    )
+    );
   }
   return (
     <section>
       <ul className={blogListStyles.list}>{renderBlogData()}</ul>
     </section>
-  )
+  );
 }
-
