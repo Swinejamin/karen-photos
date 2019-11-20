@@ -18,3 +18,8 @@ fields:
       format: markdown
   label: Description
   description: Describe the album
+- name: images
+  type: image_gallery
+  config: {}
+  label: Images
+  description: Add all the images you want included in this gallery
