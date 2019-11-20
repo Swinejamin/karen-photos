@@ -35,3 +35,5 @@ fields:
     maxSize: '8'
   label: Photo
   description: Select or upload your photo
+pages:
+- content/data/featured_photos.yaml
