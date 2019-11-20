@@ -7,13 +7,17 @@ export default function useSiteMetadata() {
         siteMetadata {
           title
           description
+          featured_photos {
+                description
+            title
+            photo
+          }
           infoData {
             contact {
               email
               facebook_handle
               instagram_handle
             }
-            cta
             description
             background_color
           }
