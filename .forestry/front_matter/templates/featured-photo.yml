@@ -35,3 +35,5 @@ fields:
     maxSize: '8'
   label: Photo
   description: Select or upload your photo
+pages:
+- content/featured_photos/wedding.md
