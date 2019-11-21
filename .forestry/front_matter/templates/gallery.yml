@@ -36,5 +36,6 @@ fields:
   label: Images
   description: Add all the images you want included in this gallery
 pages:
+- content/galleries/test.json
 - content/galleries/kids.md
 - content/galleries/weddings.md
