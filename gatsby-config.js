@@ -50,7 +50,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sharp',
       options: {
-        defaultQuality: 75,
+        defaultQuality: 90,
       },
     },
     `gatsby-transformer-sharp`,
@@ -62,8 +62,9 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 1000,
-              linkImagesToOriginal: false,
+              maxWidth: 3840,
+              linkImagesToOriginal: true,
+              quality: 100,
             },
           },
           'gatsby-remark-normalize-paths',

@@ -7,6 +7,7 @@
   "author": "kendall strautman",
   "scripts": {
     "build": "gatsby build",
+    "burn": "rm -rf node_modules && yarn install",
     "dev": "gatsby develop -o",
     "develop": "yarn dev",
     "format": "prettier --write src/**/*.{js,jsx}",
