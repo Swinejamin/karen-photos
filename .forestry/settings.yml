@@ -11,6 +11,7 @@ sections:
   label: Galleries
   create: documents
   match: "**/*"
+  new_doc_ext: ".json"
   templates:
   - gallery
 - type: heading
