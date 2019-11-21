@@ -15,10 +15,13 @@
 
 .content {
   flex-grow: 1;
-  grid-column: 1/-1;
+  grid-column: 1;
   grid-row: 1;
   height: 100%;
   overflow: auto;
+  &.fullWidth {
+    grid-column: 1/-1;
+  }
 }
 
 @media (min-width: 768px) {

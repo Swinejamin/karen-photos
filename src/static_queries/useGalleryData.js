@@ -4,7 +4,7 @@ export default function useGalleryData() {
   const data = useStaticQuery(graphql`
     query getGalleryData {
       allMarkdownRemark(
-        filter: { fields: { collection: { eq: "featured_photos" } } }
+        filter: { fields: { collection: { eq: "galleries" } } }
         sort: { order: DESC, fields: frontmatter___date }
       ) {
         edges {
@@ -15,9 +15,9 @@ export default function useGalleryData() {
               description
               title
               keywords
-              hero_image {
+              featured_photo {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
+                  fluid(maxWidth: 1800) {
                     ...GatsbyImageSharpFluid
                   }
                 }
