@@ -36,5 +36,6 @@ fields:
   label: Photo
   description: Select or upload your photo
 pages:
+- content/featured_photos/elegance.md
 - content/featured_photos/abstract.md
 - content/featured_photos/wedding.md
