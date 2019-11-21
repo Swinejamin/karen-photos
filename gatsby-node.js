@@ -1,18 +1,18 @@
 const path = require('path');
-
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 module.exports.onCreateNode = ({ node, actions, getNode }) => {
   // Transform the new node here and create a new node or
   // create a new node field.
   const { createNodeField } = actions;
-
+  fmImagesToRelative(node);
   if (node.internal.type === 'MarkdownRemark') {
-    const slug = path.basename(node.fileAbsolutePath, '.md');
+    const value = path.basename(node.fileAbsolutePath, '.md');
     const parent = getNode(node.parent);
     createNodeField({
       //same as node: node
       node,
       name: 'slug',
-      value: slug,
+      value,
     });
 
     //allows us to search by content type, e.g. 'featured_photos';

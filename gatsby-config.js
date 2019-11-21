@@ -8,6 +8,13 @@ module.exports = {
     infoData,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        defaultQuality: 90,
+      },
+    },
+    `gatsby-transformer-sharp`,
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
@@ -54,18 +61,13 @@ module.exports = {
         path: `${__dirname}/content/images`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-sharp',
-      options: {
-        defaultQuality: 90,
-      },
-    },
-    `gatsby-transformer-sharp`,
+
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-relative-images',
+          // 'gatsby-remark-relative-images',
+          'my-gatsby-remark-normalize-paths',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -74,7 +76,6 @@ module.exports = {
               quality: 100,
             },
           },
-          'gatsby-remark-normalize-paths',
         ],
       },
     },
