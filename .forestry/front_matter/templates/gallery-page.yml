@@ -39,7 +39,7 @@ fields:
   config:
     min: '1'
     max: 
-    labelField: 
+    labelField: gallery
   label: Galleries
   description: Galleries to include in this album
 pages:
