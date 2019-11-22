@@ -14,5 +14,8 @@ galleries:
   keywords: []
   gallery:
   - content/galleries/Weddings/sf.md
+gallery:
+- content/galleries/Weddings/sf.md
+- content/galleries/Weddings/sf.md
 
 ---
