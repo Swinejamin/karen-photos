@@ -1,7 +1,7 @@
 ---
 keywords: []
-title: girls
-description: not boys
+title: Girls
+description: girls
 featured_photo: "/content/images/Sheppard_December_2014_047.jpg"
 images:
 - "/content/images/Sudlow_December_2014_024.jpg"

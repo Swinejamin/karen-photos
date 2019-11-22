@@ -2,46 +2,43 @@
 label: Album
 hide_body: false
 fields:
-  - name: title
-    type: text
-    config:
-      required: true
-    label: Title
-  - name: description
-    type: textarea
-    default: ''
+- name: title
+  type: text
+  config:
+    required: true
+  label: Title
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
+- name: featured_photo
+  type: file
+  config:
+    maxSize: '10'
+  label: Featured Photo
+- name: galleries
+  type: field_group_list
+  fields:
+  - name: gallery
+    type: select
+    default: []
     config:
       required: false
-      wysiwyg: false
-      schema:
-        format: markdown
-    label: Description
-  - name: featured_photo
-    type: file
-    config:
-      maxSize: '10'
-    label: Featured Photo
-  - name: galleries
-    type: field_group_list
-    fields:
-      - name: gallery
-        type: select
-        default: []
-        config:
-          required: false
-          options: []
-          source:
-            type: pages
-            section: galleries
-            file:
-            path:
-        label: Gallery
-    config:
-      min: '1'
-      max:
-      labelField: gallery
-    label: Galleries
-    description: Galleries to include in this album
-pages:
-  - content/albums/kids.md
-  - content/albums/weddings.md
+      options: []
+      source:
+        type: pages
+        section: galleries
+        file: 
+        path: 
+    label: Gallery
+  config:
+    min: '1'
+    max: 
+    labelField: gallery
+  label: Galleries
+  description: Galleries to include in this album
