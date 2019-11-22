@@ -53,3 +53,4 @@ fields:
   default: "#B1BCBC"
 pages:
 - content/data/info.json
+- content/data/info.json
