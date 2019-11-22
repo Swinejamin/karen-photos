@@ -1,0 +1,33 @@
+.gallery {
+  padding: 30px;
+}
+.backLink {
+  text-align: left;
+}
+.title {
+  grid-column: 1/-1;
+  font-size: 6rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.description {
+  grid-column: 1/-1;
+  font-size: 2.6rem;
+  text-align: center;
+}
+.listing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-rows: repeat(auto-fit, 300px);
+
+  grid-gap: 15px;
+}
+.keywords {
+  grid-column: 1/-1;
+}
+.keyword {
+  margin-top: 30px;
+  & + & {
+    margin-left: 15px;
+  }
+}

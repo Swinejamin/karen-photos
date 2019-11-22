@@ -86,10 +86,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
     .filter(({ node }) => templates.hasOwnProperty(node.fields.collection))
     .forEach(({ node }) => {
       const { fields } = node;
+      const path = `/${fields.collection}${fields.slug.toLowerCase()}`;
+      console.log(path);
 
       createPage({
         component: templates[fields.collection],
-        path: `/${fields.collection}${fields.slug}`,
+        path,
         context: {
           slug: fields.slug,
         },

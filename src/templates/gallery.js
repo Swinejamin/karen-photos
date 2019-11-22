@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import { graphql, Link } from 'gatsby';
 
-import styles from '../styles/templates/album.module.scss';
+import styles from '../styles/templates/gallery.module.scss';
 import GatsbyImage from 'gatsby-image';
 import useAlbumData from '../static_queries/useAlbumData';
 //this component handles the blur img & fade-ins
@@ -14,38 +14,45 @@ export default function Gallery(props) {
 
   const { frontmatter } = data;
 
-  const { title, keywords, description, featured_photo, albums } = frontmatter;
-  const albumSlugs = albums.map(album => `/${album.replace(/^.*[\\\/]|.md/g, '')}/`);
-  console.log(albumSlugs);
+  const { title, keywords, description, featured_album, albums } = frontmatter;
+
+  const albumSlugs = albums.map(album => album.replace(/content\/albums\/|.md$|\/$/g, '').toLowerCase());
+
   const filteredAlbums = useAlbumData().filter(({ node }) => {
-    const key = data.fields.slug.replace(/\//g, '');
+    const key = node.fields.slug.replace(/^\/|\/$/g, '').toLowerCase();
 
-    return albumSlugs.includes(node.fields.slug);
+    return albumSlugs.includes(key);
   });
-
+  console.log(featured_album);
   return (
     <Layout>
-      <article className={styles.album}>
+      <article className={styles.gallery}>
+        <Link to={'/galleries'} className={styles.backLink}>
+          Back to galleries
+        </Link>
         <h3 className={styles.title}>{title}</h3>
         {description && <p className={styles.description}>{description}</p>}
-        {filteredAlbums &&
-          filteredAlbums.map(album => {
-            console.log(album);
-            const { fields, frontmatter } = album.node;
-
-            return (
-              <Link to={`/albums/${fields.slug}`}>
-                <GatsbyImage fluid={frontmatter.featured_photo.childImageSharp.fluid} className={styles.image} />
-              </Link>
-            );
-          })}
-        <div className={styles.keywords}>
-          {keywords &&
-            keywords.map(keyword => (
-              <Link to={`/keywords/${keyword}`} className={styles.keyword}>
-                {keyword}
-              </Link>
-            ))}
+        <div className={styles.listing}>
+          {filteredAlbums &&
+            filteredAlbums.map(album => {
+              const { fields, frontmatter } = album.node;
+              console.log(album);
+              return (
+                <Link to={`/albums/${fields.slug}`.toLowerCase()} key={fields.slug}>
+                  {frontmatter?.featured_photo && (
+                    <GatsbyImage fluid={frontmatter.featured_photo.childImageSharp.fluid} className={styles.image} />
+                  )}
+                </Link>
+              );
+            })}
+          <div className={styles.keywords}>
+            {keywords &&
+              keywords.map(keyword => (
+                <Link to={`/keywords/${keyword}`} className={styles.keyword}>
+                  {keyword}
+                </Link>
+              ))}
+          </div>
         </div>
       </article>
     </Layout>
@@ -67,13 +74,7 @@ export const getGalleryData = graphql`
 
         description
         albums
-        featured_photo {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        featured_album
       }
       html
     }

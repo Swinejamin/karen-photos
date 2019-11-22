@@ -4,27 +4,45 @@ import useGalleryData from '../static_queries/useGalleryData';
 import { Link } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 import useAlbumData from '../static_queries/useAlbumData';
+import styles from '../styles/pages/galleries.module.scss';
 
 const Galleries = () => {
   const galleries = useGalleryData();
 
   const albums = useAlbumData();
+
   return (
     <Layout>
-      {galleries.map(({ node }) => {
-        const { title, featured_album } = node.frontmatter;
-        const { slug } = node.fields;
+      <section className={styles.galleries}>
+        {galleries.map(({ node }) => {
+          const { title, featured_album, description } = node.frontmatter;
+          const { slug } = node.fields;
 
-        const fa = albums.find(
-          album => album.node.fields.slug === `/${featured_album?.replace(/^.*[\\\/]|.md/g, '')}/`
-        );
-        return (
-          <Link key={node.id} to={`/galleries/${slug}`}>
-            {fa && <GatsbyImage fluid={fa.node.frontmatter.featured_photo.childImageSharp.fluid} />}
-            <span>{title}</span>
-          </Link>
-        );
-      })}
+          const fa = albums.find(album => {
+            const featuredAlbumSlug = `${featured_album}`.replace(/content\/albums\/|.md$|\/$/g, '').toLowerCase();
+            const built = album.node.fields.slug.replace(/^\/|\/$/g, '').toLowerCase();
+            const matched = featuredAlbumSlug === built;
+
+            return matched;
+          });
+          return (
+            <Link key={node.id} to={`/galleries/${slug}`} className={styles.gallery}>
+              <figure className={styles.figure}>
+                {fa && (
+                  <GatsbyImage
+                    fluid={fa.node.frontmatter.featured_photo.childImageSharp.fluid}
+                    className={styles.image}
+                  />
+                )}
+                <figcaption className={styles.caption}>
+                  {description && <p className={styles.description}>{description}</p>}
+                  <span className={styles.title}>{title}</span>
+                </figcaption>
+              </figure>
+            </Link>
+          );
+        })}
+      </section>
     </Layout>
   );
 };

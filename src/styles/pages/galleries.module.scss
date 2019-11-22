@@ -1,0 +1,46 @@
+.galleries {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fit, 400px);
+  grid-gap: 15px;
+  padding: 15px;
+}
+.gallery {
+  height: 100%;
+  width: 100%;
+  &:hover,
+  &:focus {
+    opacity: 1;
+    .image {
+      opacity: 0.5;
+    }
+    .description {
+      opacity: 1;
+    }
+  }
+}
+.figure {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.image {
+  transition: opacity 0.3s ease;
+}
+.caption {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  text-shadow: 1px 1px 3px #333;
+}
+.title {
+  text-transform: uppercase;
+  font-size: 5rem;
+}
+.description {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 1.8rem;
+}

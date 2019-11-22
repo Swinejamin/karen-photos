@@ -24,7 +24,7 @@ export default function Album(props) {
             console.log(image);
             const slug = image;
 
-            return <GatsbyImage fluid={image.childImageSharp.fluid} className={styles.image} />;
+            return <GatsbyImage key={image.id} fluid={image.childImageSharp.fluid} className={styles.image} />;
           })}
         <div className={styles.keywords}>
           {keywords &&
@@ -51,6 +51,7 @@ export const getAlbumData = graphql`
         title
         date(formatString: "MMMM Do, YYYY")
         images {
+          id
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -59,6 +60,7 @@ export const getAlbumData = graphql`
         }
         description
         featured_photo {
+          id
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
