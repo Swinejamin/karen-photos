@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
-import useGalleryData from '../static_queries/useGalleryData';
+import useAlbumData from '../static_queries/useAlbumData';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styles from '../styles/pages/galleries.module.scss';
 
-const Galleries = () => {
-  const galleries = useGalleryData();
+const Albums = () => {
+  const galleries = useAlbumData();
 
   return (
     <Layout>
@@ -17,7 +17,7 @@ const Galleries = () => {
           const { slug } = fields;
           const { title, featured_photo } = frontmatter;
           return (
-            <Link to={`gallery/${slug}`}>
+            <Link to={`album/${slug}`}>
               <Img fluid={featured_photo.childImageSharp.fluid} />
             </Link>
           );
@@ -27,4 +27,4 @@ const Galleries = () => {
   );
 };
 
-export default Galleries;
+export default Albums;

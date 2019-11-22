@@ -12,16 +12,17 @@ export default function Album(props) {
   // const allGalleryData = useGalleryData();
   // console.log(allGalleryData);
   const { frontmatter } = data;
+  console.log(data);
   const { title, keywords, description, galleries, featured_photo } = frontmatter;
   return (
     <Layout>
       <article className={styles.album}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>
-        {galleries.map(gallery => {
-          const { fields } = gallery;
+        {galleries.map(({ gallery }) => {
+          console.log(gallery);
+          const slug = gallery;
 
-          const { slug } = fields;
           return (
             <Link to={`gallery/${slug}`}>
               <GatsbyImage fluid={featured_photo.childImageSharp.fluid} className={styles.image} />
@@ -29,11 +30,12 @@ export default function Album(props) {
           );
         })}
         <div className={styles.keywords}>
-          {keywords.map(keyword => (
-            <Link to={`/keywords/${keyword}`} className={styles.keyword}>
-              {keyword}
-            </Link>
-          ))}
+          {keywords &&
+            keywords.map(keyword => (
+              <Link to={`/keywords/${keyword}`} className={styles.keyword}>
+                {keyword}
+              </Link>
+            ))}
         </div>
       </article>
     </Layout>
@@ -52,6 +54,7 @@ export const getGalleryData = graphql`
         title
         date(formatString: "MMMM Do, YYYY")
         galleries {
+          description
           title
         }
         keywords

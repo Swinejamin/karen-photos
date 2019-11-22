@@ -75,7 +75,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-  console.log(albumEdges);
+
   albumEdges.forEach(edge => {
     createPage({
       component: albumTemplate,

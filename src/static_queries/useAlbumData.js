@@ -24,9 +24,15 @@ export default function useAlbumData() {
               }
 
               galleries {
-                fields {
-                  slug
+                title
+                featured_photo {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
                 }
+                description
               }
             }
             fields {
