@@ -2,8 +2,17 @@
 label: Album
 hide_body: false
 fields:
-- name: gallery
-  type: include
-  config: {}
-  template: album
-  label: Gallery
+- name: title
+  type: text
+  config:
+    required: true
+  label: Title
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
