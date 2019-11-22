@@ -14,13 +14,7 @@ export default function useGalleryData() {
               date(formatString: "MMMM Do, YYYY")
               description
               title
-              featured_photo {
-                childImageSharp {
-                  fluid(maxWidth: 1800) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+              featured_album
             }
             fields {
               slug
