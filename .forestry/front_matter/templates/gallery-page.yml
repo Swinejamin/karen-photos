@@ -16,3 +16,21 @@ fields:
     schema:
       format: markdown
   label: Description
+- name: featured_photo
+  type: file
+  config:
+    maxSize: '10'
+  label: Featured Photo
+- name: galleries
+  type: select
+  default: ''
+  config:
+    required: true
+    options: []
+    source:
+      type: pages
+      section: galleries
+      file: 
+      path: 
+  label: Galleries
+  description: Galleris to include in this album
