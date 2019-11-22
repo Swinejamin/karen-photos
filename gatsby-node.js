@@ -31,6 +31,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   //get path to template
   const blogTemplate = path.resolve('./src/templates/blog.js');
   const galleryTemplate = path.resolve('./src/templates/gallery.js');
+  const albumTemplate = path.resolve('./src/templates/album.js');
   //get slugs
   const results = await graphql(`
     query {
@@ -50,6 +51,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   const blogEdges = allEdges.filter(edge => edge.node.fields.collection === `posts`);
   const galleryEdges = allEdges.filter(edge => edge.node.fields.collection === `galleries`);
+  const albumEdges = allEdges.filter(edge => edge.node.fields.collection === `albums`);
 
   // todo: do the same as blog but for galleries, albums
   //    will need to add to gatsby-config as well
@@ -68,6 +70,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
     createPage({
       component: galleryTemplate,
       path: `/gallery/${edge.node.fields.slug}`,
+      context: {
+        slug: edge.node.fields.slug,
+      },
+    });
+  });
+  console.log(albumEdges);
+  albumEdges.forEach(edge => {
+    createPage({
+      component: albumTemplate,
+      path: `/album/${edge.node.fields.slug}`,
       context: {
         slug: edge.node.fields.slug,
       },
