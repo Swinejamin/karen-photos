@@ -13,8 +13,17 @@ fields:
   label: featured_photo
 - type: field_group_list
   name: galleries
-  label: galleries
+  label: Galleries
   fields:
-  - type: text
-    name: gallery
-    label: gallery
+  - name: gallery
+    type: select
+    default: []
+    config:
+      required: false
+      options: []
+      source:
+        type: pages
+        section: galleries
+        file: 
+        path: 
+    label: Gallery
