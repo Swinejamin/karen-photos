@@ -1,10 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export default function useAlbumData() {
+export default function useGalleryData() {
   const data = useStaticQuery(graphql`
-    query getAlbumData {
+    query getGalleryData {
       allMarkdownRemark(
-        filter: { fields: { collection: { eq: "albums" } } }
+        filter: { fields: { collection: { eq: "galleries" } } }
         sort: { order: DESC, fields: frontmatter___date }
       ) {
         edges {
@@ -24,7 +24,6 @@ export default function useAlbumData() {
             }
             fields {
               slug
-              collection
             }
           }
         }

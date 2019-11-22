@@ -4,27 +4,40 @@ import { graphql, Link } from 'gatsby';
 
 import styles from '../styles/templates/album.module.scss';
 import GatsbyImage from 'gatsby-image';
+import useAlbumData from '../static_queries/useAlbumData';
 //this component handles the blur img & fade-ins
 // import Img from 'gatsby-image';
 
-export default function Album(props) {
+export default function Gallery(props) {
   const data = props.data.markdownRemark;
   // const allGalleryData = useGalleryData();
-  // console.log(allGalleryData);
+
   const { frontmatter } = data;
-  console.log(data);
-  const { title, keywords, description, images, featured_photo } = frontmatter;
+
+  const { title, keywords, description, featured_photo, albums } = frontmatter;
+  const albumSlugs = albums.map(album => `/${album.replace(/^.*[\\\/]|.md/g, '')}/`);
+  console.log(albumSlugs);
+  const filteredAlbums = useAlbumData().filter(({ node }) => {
+    const key = data.fields.slug.replace(/\//g, '');
+
+    return albumSlugs.includes(node.fields.slug);
+  });
+
   return (
     <Layout>
       <article className={styles.album}>
         <h3 className={styles.title}>{title}</h3>
         {description && <p className={styles.description}>{description}</p>}
-        {images &&
-          images.map(image => {
-            console.log(image);
-            const slug = image;
+        {filteredAlbums &&
+          filteredAlbums.map(album => {
+            console.log(album);
+            const { fields, frontmatter } = album.node;
 
-            return <GatsbyImage fluid={image.childImageSharp.fluid} className={styles.image} />;
+            return (
+              <Link to={`/albums/${fields.slug}`}>
+                <GatsbyImage fluid={frontmatter.featured_photo.childImageSharp.fluid} className={styles.image} />
+              </Link>
+            );
           })}
         <div className={styles.keywords}>
           {keywords &&
@@ -41,23 +54,19 @@ export default function Album(props) {
 
 //dynamic page query, must occur within each post context
 //$slug is made available by context from createPages call in gatsby-node.js
-export const getAlbumData = graphql`
+export const getGalleryData = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       fields {
         slug
+        collection
       }
       frontmatter {
         title
         date(formatString: "MMMM Do, YYYY")
-        images {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+
         description
+        albums
         featured_photo {
           childImageSharp {
             fluid {

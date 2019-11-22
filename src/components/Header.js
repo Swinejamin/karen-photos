@@ -9,8 +9,8 @@ export default function Header(props) {
         <h1>{props.title}</h1>
       </Link>
       <nav className={styles.nav} role="navigation" aria-label="main navigation">
-        <Link to={'/albums'} className={styles.navItem} activeClassName={styles.navItemActive}>
-          Albums
+        <Link to={'/galleries'} className={styles.navItem} activeClassName={styles.navItemActive}>
+          Galleries
         </Link>
         <Link to={'/info'} className={styles.navItem} activeClassName={styles.navItemActive}>
           Info

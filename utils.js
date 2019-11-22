@@ -14,10 +14,10 @@ function normalizePath(path, nodeInfo) {
       return undefined;
     }
   }
-
   // Normalize path field from absolute to relative
   if (path && isString && isAbsolute(path)) {
     return getRelativePath(fileAbsolutePath, path);
+  } else {
   }
 
   return path;
@@ -25,40 +25,43 @@ function normalizePath(path, nodeInfo) {
 
 function normalizeArray(arr, nodeInfo) {
   const newArr = [];
+  let type = null;
   for (let val of arr) {
     if (Array.isArray(val)) {
+      // console.log('arr');
       newArr.push(normalizeArray(val, nodeInfo));
     } else if (typeof val === 'object') {
+      // console.log('obj');
       newArr.push(normalizeObject(val, nodeInfo));
     } else {
+      // console.log(`normalizing path for ${val}`);
       newArr.push(normalizePath(val, nodeInfo));
     }
   }
-  return newArr;
+  return { array: newArr };
 }
 
-function normalizeObject(obj, nodeInfo) {
-  const newObj = {};
-  for (let key in obj) {
-    // don't convert if pathFields is specified and this key isn't in it
-    if (nodeInfo.pathFields && Array.isArray(nodeInfo.pathFields) && nodeInfo.pathFields.indexOf(key) < 0) {
-      newObj[key] = obj[key];
-    } else if (Array.isArray(obj[key])) {
-      newObj[key] = normalizeArray(obj[key], nodeInfo);
-    } else if (typeof obj[key] === 'object') {
-      newObj[key] = normalizeObject(obj[key], nodeInfo);
-    } else {
-      newObj[key] = normalizePath(obj[key], nodeInfo);
-    }
-  }
-  return newObj;
-}
 function getRelativePath(fileAbsolutePath, path) {
   const currentAbsoluteDir = process.cwd();
   const nodeFileAbsoluteDir = dirname(fileAbsolutePath);
   const nodeFileRelativeDir = nodeFileAbsoluteDir.replace(`${currentAbsoluteDir}`, '');
-
+  // console.log(`getting relative for ${path}`);
   return relative(nodeFileRelativeDir, path);
 }
-
-module.exports = { normalizeArray, normalizeObject, normalizePath };
+function normalizeObject(obj, nodeInfo) {
+  const newObj = {};
+  const type = null;
+  for (let key in obj) {
+    if (Array.isArray(obj[key])) {
+      const na = normalizeArray(obj[key], nodeInfo);
+      newObj[key] = na.array;
+    } else if (typeof obj[key] === 'object') {
+      newObj[key] = normalizeObject(obj[key], nodeInfo);
+    } else {
+      // console.dir(`Path: ${key}`);
+      newObj[key] = normalizePath(obj[key], nodeInfo);
+    }
+  }
+  return { type, fm: newObj };
+}
+module.exports = { normalizeObject };

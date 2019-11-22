@@ -3,7 +3,6 @@ import React from 'react';
 import styles from '../styles/components/featuredphoto.module.scss';
 
 const FeaturedPhoto = ({ title, description, photo, ...rest }) => {
-  console.log({ title, description, photo, ...rest });
   return (
     <figure className={styles.photo}>
       <Img fluid={photo?.childImageSharp?.fluid} alt={`${title}: ${description}`} />

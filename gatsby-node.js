@@ -1,23 +1,8 @@
 const path = require('path');
 // const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 const { createFilePath } = require(`gatsby-source-filesystem`);
-const { normalizeArray, normalizePath } = require('./utils.js');
-function normalizeObject(obj, nodeInfo) {
-  const newObj = {};
-  const type = null;
-  for (let key in obj) {
-    if (Array.isArray(obj[key])) {
-      const na = normalizeArray(obj[key], nodeInfo);
-      newObj[key] = na.array;
-    } else if (typeof obj[key] === 'object') {
-      newObj[key] = normalizeObject(obj[key], nodeInfo);
-    } else {
-      // console.dir(`Path: ${key}`);
-      newObj[key] = normalizePath(obj[key], nodeInfo);
-    }
-  }
-  return { type, fm: newObj };
-}
+const { normalizeObject } = require('./utils.js');
+
 module.exports = {
   sourceNodes: ({ actions, schema }) => {
     const { createTypes } = actions;
@@ -27,7 +12,6 @@ module.exports = {
       featured_photo: File @fileByRelativePath
       photo: File @fileByRelativePath
       images: [File] @fileByRelativePath
-      albums: [File] @fileByRelativePath
 
     }
 
@@ -43,7 +27,7 @@ module.exports = {
 
     if (node.internal.type === 'MarkdownRemark') {
       const parent = getNode(node.parent);
-      const slug = createFilePath({ node, getNode, basePath: parent.sourceInstanceName });
+      const slug = createFilePath({ node, getNode });
       const res = normalizeObject(node.frontmatter, {
         fileAbsolutePath: node.fileAbsolutePath,
       });
@@ -75,6 +59,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const templates = {
     posts: path.resolve('./src/templates/blog.js'),
     albums: path.resolve('./src/templates/album.js'),
+    galleries: path.resolve('./src/templates/gallery.js'),
   };
   //get slugs
   const results = await graphql(`
@@ -101,7 +86,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     .filter(({ node }) => templates.hasOwnProperty(node.fields.collection))
     .forEach(({ node }) => {
       const { fields } = node;
-      console.log(fields.collection);
+
       createPage({
         component: templates[fields.collection],
         path: `/${fields.collection}${fields.slug}`,
@@ -110,14 +95,4 @@ module.exports.createPages = async ({ graphql, actions }) => {
         },
       });
     });
-
-  // albumEdges.forEach(edge => {
-  //   createPage({
-  //     component: albumTemplate,
-  //     path: `/album/${edge.node.fields.slug}`,
-  //     context: {
-  //       slug: edge.node.fields.slug,
-  //     },
-  //   });
-  // });
 };
