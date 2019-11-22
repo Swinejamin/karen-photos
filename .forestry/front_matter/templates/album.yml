@@ -11,22 +11,15 @@ fields:
 - type: file
   name: featured_photo
   label: featured_photo
-- type: field_group_list
-  name: galleries
-  label: Galleries
-  fields:
-  - name: gallery
-    type: list
-    config:
-      use_select: true
-      min: '1'
-      max: 
-      source:
-        type: pages
-        section: galleries
-    label: Gallery
+- name: gallery
+  type: list
   config:
-    labelField: ''
-    min: '1'
+    use_select: true
+    min: 
+    max: 
+    source:
+      type: pages
+      section: galleries
+  label: Gallery
 pages:
 - content/albums/weddings.md
