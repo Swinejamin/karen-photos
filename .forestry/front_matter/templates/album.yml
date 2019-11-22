@@ -27,3 +27,5 @@ fields:
         file: 
         path: 
     label: Gallery
+pages:
+- content/albums/weddings.md
