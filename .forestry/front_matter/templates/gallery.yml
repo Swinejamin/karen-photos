@@ -26,3 +26,5 @@ fields:
       type: pages
       section: albums
   label: Albums
+pages:
+- content/galleries/weddings.md
