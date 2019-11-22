@@ -26,7 +26,7 @@ fields:
       type: pages
       section: albums
   label: Albums
-- name: featured_photo
+- name: featured_album
   type: select
   default: []
   config:
@@ -37,7 +37,7 @@ fields:
       section: albums
       file: 
       path: 
-  label: Featured Photo
+  label: Featured Album
 pages:
 - content/galleries/weddings.md
 - content/galleries/kids.md
