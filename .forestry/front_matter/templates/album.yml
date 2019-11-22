@@ -15,12 +15,14 @@ fields:
 - type: file
   name: featured_photo
   label: featured_photo
+  config:
+    maxSize: '10'
 - name: images
   type: image_gallery
   config: {}
   label: Images
 pages:
 - content/albums/black-white.md
+- content/albums/weddings.md
 - content/albums/boys.md
 - content/albums/girls.md
-- content/albums/weddings.md
