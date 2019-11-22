@@ -15,18 +15,11 @@ fields:
   name: galleries
   label: Galleries
   fields:
-  - name: gallery
-    type: select
-    default: []
-    config:
-      required: false
-      options: []
-      source:
-        type: pages
-        section: galleries
-        file: 
-        path: 
-    label: Gallery
+  - name: album
+    type: include
+    config: {}
+    template: album
+    label: Album
   config:
     labelField: gallery
 pages:
