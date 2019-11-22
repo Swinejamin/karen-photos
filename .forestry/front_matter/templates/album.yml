@@ -19,3 +19,5 @@ fields:
   type: image_gallery
   config: {}
   label: Images
+pages:
+- content/albums/weddings.md
