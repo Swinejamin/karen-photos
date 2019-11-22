@@ -7,6 +7,13 @@ sections:
 - type: heading
   label: Showcase
 - type: directory
+  path: content/data
+  label: Albums
+  create: documents
+  match: "**/*"
+  templates:
+  - gallery-page
+- type: directory
   path: content/galleries
   label: Galleries
   create: documents
