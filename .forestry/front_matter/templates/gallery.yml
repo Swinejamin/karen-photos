@@ -39,5 +39,5 @@ fields:
       path: 
   label: Featured Album
 pages:
-- content/galleries/weddings.md
 - content/galleries/kids.md
+- content/galleries/weddings.md
