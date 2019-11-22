@@ -27,4 +27,5 @@ fields:
       section: albums
   label: Albums
 pages:
+- content/galleries/kids.md
 - content/galleries/weddings.md
