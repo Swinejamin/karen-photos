@@ -36,5 +36,6 @@ fields:
   label: Images
   description: Add all the images you want included in this gallery
 pages:
+- content/galleries/Kids/boys.20191120200306
 - content/galleries/kids.md
 - content/galleries/weddings.md
