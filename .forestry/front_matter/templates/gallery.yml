@@ -39,5 +39,5 @@ fields:
       path: 
   label: Featured Photo
 pages:
-- content/galleries/kids.md
 - content/galleries/weddings.md
+- content/galleries/kids.md
