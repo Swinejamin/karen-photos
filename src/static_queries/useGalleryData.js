@@ -14,6 +14,7 @@ export default function useGalleryData() {
               date(formatString: "MMMM Do, YYYY")
               description
               title
+              albums
               featured_album
             }
             fields {

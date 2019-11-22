@@ -38,11 +38,13 @@ export default function Gallery(props) {
               const { fields, frontmatter } = album.node;
               console.log(album);
               return (
-                <Link to={`/albums/${fields.slug}`.toLowerCase()} key={fields.slug}>
-                  {frontmatter?.featured_photo && (
-                    <GatsbyImage fluid={frontmatter.featured_photo.childImageSharp.fluid} className={styles.image} />
-                  )}
-                </Link>
+                frontmatter.images.length > 0 && (
+                  <Link to={`/albums/${fields.slug}`.toLowerCase()} key={fields.slug}>
+                    {frontmatter?.featured_photo && (
+                      <GatsbyImage fluid={frontmatter.featured_photo.childImageSharp.fluid} className={styles.image} />
+                    )}
+                  </Link>
+                )
               );
             })}
           <div className={styles.keywords}>

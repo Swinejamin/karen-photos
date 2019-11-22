@@ -87,7 +87,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     .forEach(({ node }) => {
       const { fields } = node;
       const path = `/${fields.collection}${fields.slug.toLowerCase()}`;
-      console.log(path);
 
       createPage({
         component: templates[fields.collection],

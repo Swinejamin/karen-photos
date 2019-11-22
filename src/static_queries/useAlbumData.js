@@ -21,6 +21,9 @@ export default function useAlbumData() {
                   }
                 }
               }
+              images {
+                id
+              }
             }
             fields {
               slug
