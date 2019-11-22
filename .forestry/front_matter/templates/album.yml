@@ -22,4 +22,5 @@ fields:
       section: galleries
   label: Galleries
 pages:
+- content/albums/kids.md
 - content/albums/weddings.md
