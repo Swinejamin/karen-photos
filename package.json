@@ -1,10 +1,10 @@
 {
-  "name": "foresry-starter-blog-gatsby",
+  "name": "karens-photo-blog",
   "private": true,
-  "description": "A simple starter blog to get up and developing quickly with Forestry & Gatsby",
+  "description": "Photo Blog built with Forestry & Gatsby",
   "license": "MIT",
   "version": "0.1.0",
-  "author": "kendall strautman",
+  "author": "Benjamin Swineford",
   "scripts": {
     "build": "gatsby build",
     "burn": "rm -rf node_modules && yarn install",
@@ -54,7 +54,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/forestryio/brevifolia-gatsby-forestry"
+    "url": "https://github.com/swinejamin/karen-photos"
   },
   "husky": {
     "hooks": {
