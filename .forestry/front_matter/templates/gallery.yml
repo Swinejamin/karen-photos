@@ -35,7 +35,3 @@ fields:
   config: {}
   label: Images
   description: Add all the images you want included in this gallery
-pages:
-- content/galleries/Kids/girls.md
-- content/galleries/Weddings/sf.md
-- content/galleries/Kids/boys.md
