@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import { graphql, Link } from 'gatsby';
 
-import styles from '../styles/templates/gallery.module.scss';
+import styles from '../styles/templates/album.module.scss';
 import GatsbyImage from 'gatsby-image';
 //this component handles the blur img & fade-ins
 // import Img from 'gatsby-image';
@@ -13,21 +13,17 @@ export default function Album(props) {
   // console.log(allGalleryData);
   const { frontmatter } = data;
   console.log(data);
-  const { title, keywords, description, galleries, featured_photo } = frontmatter;
+  const { title, keywords, description, images, featured_photo } = frontmatter;
   return (
     <Layout>
       <article className={styles.album}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>
-        {galleries.map(({ gallery }) => {
-          console.log(gallery);
-          const slug = gallery;
+        {images.map(({ image }) => {
+          console.log(image);
+          const slug = image;
 
-          return (
-            <Link to={`gallery/${slug}`}>
-              <GatsbyImage fluid={featured_photo.childImageSharp.fluid} className={styles.image} />
-            </Link>
-          );
+          return <GatsbyImage fluid={image.childImageSharp.fluid} className={styles.image} />;
         })}
         <div className={styles.keywords}>
           {keywords &&
@@ -53,11 +49,13 @@ export const getGalleryData = graphql`
       frontmatter {
         title
         date(formatString: "MMMM Do, YYYY")
-        galleries {
-          description
-          title
+        images {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
-        keywords
         description
         featured_photo {
           childImageSharp {

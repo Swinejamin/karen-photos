@@ -1,10 +1,11 @@
-.galleries {
+.albums {
   display: grid;
   height: 100%;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: min-content;
 }
-.gallery {
+.album {
   height: 100%;
   width: 100%;
 }

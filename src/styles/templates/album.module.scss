@@ -1,6 +1,7 @@
 .album {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-template-rows: min-content;
   grid-gap: 15px;
   padding: 30px;
 }
