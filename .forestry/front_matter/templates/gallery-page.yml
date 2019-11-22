@@ -21,5 +21,26 @@ fields:
   config:
     maxSize: '10'
   label: Featured Photo
+- name: galleries
+  type: field_group_list
+  fields:
+  - name: gallery
+    type: select
+    default: []
+    config:
+      required: false
+      options: []
+      source:
+        type: pages
+        section: galleries
+        file: 
+        path: 
+    label: Gallery
+  config:
+    min: '1'
+    max: 
+    labelField: 
+  label: Galleries
+  description: Galleries to include in this album
 pages:
 - content/data/weddings.md
