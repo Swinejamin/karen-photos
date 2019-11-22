@@ -15,12 +15,13 @@ fields:
   name: galleries
   label: Galleries
   fields:
-  - name: album
+  - name: gallery
     type: include
     config: {}
-    template: album
-    label: Album
+    template: gallery
+    label: Gallery
   config:
-    labelField: gallery
+    labelField: ''
+    min: '1'
 pages:
 - content/albums/weddings.md
