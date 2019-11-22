@@ -18,13 +18,14 @@ export default function Album(props) {
     <Layout>
       <article className={styles.album}>
         <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
-        {images.map(image => {
-          console.log(image);
-          const slug = image;
+        {description && <p className={styles.description}>{description}</p>}
+        {images &&
+          images.map(image => {
+            console.log(image);
+            const slug = image;
 
-          return <GatsbyImage fluid={image.childImageSharp.fluid} className={styles.image} />;
-        })}
+            return <GatsbyImage fluid={image.childImageSharp.fluid} className={styles.image} />;
+          })}
         <div className={styles.keywords}>
           {keywords &&
             keywords.map(keyword => (

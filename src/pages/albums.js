@@ -17,7 +17,7 @@ const Albums = () => {
           const { slug } = fields;
           const { title, featured_photo } = frontmatter;
           return (
-            <Link to={`album/${slug}`} className={styles.album}>
+            <Link to={`albums/${slug}`} className={styles.album}>
               {featured_photo ? <Img fluid={featured_photo.childImageSharp.fluid} /> : title}
             </Link>
           );

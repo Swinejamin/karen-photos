@@ -3,29 +3,28 @@ label: Album
 hide_body: true
 display_field: title
 fields:
-- type: text
-  name: title
-  label: title
-  config:
-    required: true
-- type: text
-  name: description
-  label: description
-- name: keywords
-  type: tag_list
-  default: []
-  label: keywords
-- type: file
-  name: featured_photo
-  label: featured_photo
-  config:
-    maxSize: '10'
-- name: images
-  type: image_gallery
-  config: {}
-  label: Images
+  - type: text
+    name: title
+    label: title
+    config:
+      required: true
+  - type: text
+    name: description
+    label: description
+  - name: keywords
+    type: tag_list
+    default: []
+    label: keywords
+  - type: file
+    name: featured_photo
+    label: featured_photo
+    config:
+      maxSize: '10'
+  - name: images
+    type: image_gallery
+    config: {}
+    label: Images
 pages:
-- content/albums/boys-1.md
-- content/albums/weddings.md
-- content/albums/boys.md
-- content/albums/girls.md
+  - content/albums/weddings.md
+  - content/albums/boys.md
+  - content/albums/girls.md
