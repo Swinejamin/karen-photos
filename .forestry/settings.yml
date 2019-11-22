@@ -7,7 +7,7 @@ sections:
 - type: heading
   label: Showcase
 - type: directory
-  path: content/data
+  path: content/albums
   label: Albums
   create: documents
   match: "**/*"
