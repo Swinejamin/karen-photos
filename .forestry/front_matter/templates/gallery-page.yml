@@ -43,4 +43,5 @@ fields:
   label: Galleries
   description: Galleries to include in this album
 pages:
+- content/albums/kids.md
 - content/albums/weddings.md
