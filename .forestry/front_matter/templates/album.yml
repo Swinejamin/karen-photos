@@ -22,6 +22,7 @@ fields:
   config: {}
   label: Images
 pages:
+- content/albums/boys-1.md
 - content/albums/weddings.md
 - content/albums/boys.md
 - content/albums/girls.md
