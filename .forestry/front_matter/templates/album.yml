@@ -27,5 +27,7 @@ fields:
         file: 
         path: 
     label: Gallery
+  config:
+    labelField: gallery
 pages:
 - content/albums/weddings.md
