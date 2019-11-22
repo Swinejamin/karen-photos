@@ -26,6 +26,18 @@ fields:
       type: pages
       section: albums
   label: Albums
+- name: featured_photo
+  type: select
+  default: []
+  config:
+    required: true
+    options: []
+    source:
+      type: documents
+      section: albums
+      file: 
+      path: 
+  label: Featured Photo
 pages:
 - content/galleries/kids.md
 - content/galleries/weddings.md
