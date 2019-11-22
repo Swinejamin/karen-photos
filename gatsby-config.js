@@ -18,7 +18,7 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
-
+    'gatsby-remark-images',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -63,16 +63,17 @@ module.exports = {
     },
 
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           // 'gatsby-remark-relative-images',
-          'my-gatsby-remark-normalize-paths',
+          // 'gatsby-bing-bong',
+          // { resolve: 'gatsby-remark-copy-linked-files' },
           {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 3840,
-              linkImagesToOriginal: true,
+              linkImagesToOriginal: false,
               quality: 100,
             },
           },

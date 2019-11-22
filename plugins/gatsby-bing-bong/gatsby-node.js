@@ -5,6 +5,7 @@ const {getRelativePath} = require("./utils.js")
 
 function normalizePath(path, nodeInfo) {
   const {fileAbsolutePath} = nodeInfo
+
   const isString = typeof path === "string"
 
   // Stop if field is not a valid path
@@ -58,15 +59,19 @@ function normalizeObject(obj, nodeInfo) {
   return newObj
 }
 
-exports.onCreateNode = ({node}, pluginOptions) => {
+async function onCreateNode({node}, pluginOptions) {
   const isMarkdownRemark = node.internal.type === "MarkdownRemark"
+  const {path, internal, id, ...rest} = node
 
   if (!isMarkdownRemark) {
     return
   }
 
-  node.frontmatter = normalizeObject(node.frontmatter, {
+  const res = normalizeObject(node.frontmatter, {
     pathFields: pluginOptions.pathFields,
     fileAbsolutePath: node.fileAbsolutePath,
   })
+  // console.log(res)
+  node.frontmatter = res
 }
+exports.onCreateNode = onCreateNode
