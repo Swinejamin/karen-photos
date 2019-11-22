@@ -19,7 +19,7 @@ export default function Album(props) {
       <article className={styles.album}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>
-        {images.map(({ image }) => {
+        {images.map(image => {
           console.log(image);
           const slug = image;
 
