@@ -9,14 +9,14 @@ sections:
 - type: directory
   path: content/galleries
   label: Galleries
-  create: all
+  create: documents
   match: "**/*"
   templates:
   - gallery
 - type: directory
   path: content/albums
   label: Albums
-  create: documents
+  create: all
   match: "**/*"
   templates:
   - album
