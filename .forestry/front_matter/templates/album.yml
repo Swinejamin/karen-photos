@@ -19,3 +19,4 @@ fields:
   type: image_gallery
   config: {}
   label: Images
+  description: Add/Reorder images. The first image will be featured.
