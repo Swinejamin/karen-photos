@@ -16,18 +16,6 @@ fields:
     schema:
       format: markdown
   label: Description
-- name: featured_album
-  type: select
-  default: []
-  config:
-    required: true
-    options: []
-    source:
-      type: pages
-      section: albums
-      file: 
-      path: 
-  label: Featured Album
 - name: albums
   type: field_group_list
   fields:

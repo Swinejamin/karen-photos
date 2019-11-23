@@ -13,13 +13,6 @@ sections:
   match: "**/*"
   templates:
   - gallery
-- type: directory
-  path: content/albums
-  label: Albums
-  create: all
-  match: "**/*"
-  templates:
-  - album
 - type: heading
   label: Content
 - type: directory
