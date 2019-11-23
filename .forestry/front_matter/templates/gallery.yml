@@ -29,5 +29,7 @@ fields:
     max: 
     labelField: title
   label: Albums
+  description: Add/Reorder albums. The first listed will be featured on the main galleries
+    listing.
 pages:
 - content/galleries/kids.md
