@@ -42,5 +42,4 @@ fields:
     labelField: title
   label: Albums
 pages:
-- content/galleries/kids.md
 - content/galleries/weddings.md
