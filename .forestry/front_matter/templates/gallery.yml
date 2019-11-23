@@ -16,16 +16,6 @@ fields:
     schema:
       format: markdown
   label: Description
-- name: albums
-  type: list
-  config:
-    use_select: true
-    min: '1'
-    max: 
-    source:
-      type: pages
-      section: albums
-  label: Albums
 - name: featured_album
   type: select
   default: []
@@ -38,6 +28,19 @@ fields:
       file: 
       path: 
   label: Featured Album
+- name: albums
+  type: field_group_list
+  fields:
+  - name: album
+    type: include
+    config: {}
+    template: album
+    label: Album
+  config:
+    min: '2'
+    max: 
+    labelField: title
+  label: Albums
 pages:
 - content/galleries/kids.md
 - content/galleries/weddings.md

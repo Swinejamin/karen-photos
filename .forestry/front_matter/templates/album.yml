@@ -3,29 +3,27 @@ label: Album
 hide_body: true
 display_field: title
 fields:
-  - type: text
-    name: title
-    label: title
-    config:
-      required: true
-  - type: text
-    name: description
-    label: description
-  - name: keywords
-    type: tag_list
-    default: []
-    label: keywords
-  - type: file
-    name: featured_photo
-    label: featured_photo
-    config:
-      maxSize: '10'
-  - name: images
-    type: image_gallery
-    config: {}
-    label: Images
+- type: text
+  name: title
+  label: title
+  config:
+    required: true
+- type: text
+  name: description
+  label: description
+- name: keywords
+  type: tag_list
+  default: []
+  label: keywords
+- type: file
+  name: featured_photo
+  label: featured_photo
+  config:
+    maxSize: '10'
+- name: images
+  type: image_gallery
+  config: {}
+  label: Images
 pages:
-  - content/albums/Weddings/bing-bong.md
-  - content/albums/Weddings/sf.md
-  - content/albums/kids/boys.md
-  - content/albums/kids/girls.md
+- content/albums/Weddings/sf.md
+- content/albums/Weddings/bing-bong.md
