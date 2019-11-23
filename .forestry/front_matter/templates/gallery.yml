@@ -29,3 +29,5 @@ fields:
     max: 
     labelField: title
   label: Albums
+pages:
+- content/galleries/kids.md
