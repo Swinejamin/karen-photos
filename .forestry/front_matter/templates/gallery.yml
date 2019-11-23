@@ -41,5 +41,3 @@ fields:
     max: 
     labelField: title
   label: Albums
-pages:
-- content/galleries/weddings.md
