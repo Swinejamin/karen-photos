@@ -12,5 +12,13 @@ fields:
   name: repository_url
   label: repository_url
   hidden: true
+- name: featured_photos
+  type: blocks
+  label: Featured Photos
+  template_types:
+  - featured-photo
+  config:
+    min: '1'
+    max: '5'
 pages:
 - config.json
