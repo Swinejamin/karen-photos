@@ -1,6 +1,6 @@
 ---
 title: Kids
-description: ''
+description: sasaen
 albums:
 - title: Boys
   description: Everything Nice
